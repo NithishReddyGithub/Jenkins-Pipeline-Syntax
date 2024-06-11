@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    tools {
+        // Global tool configuration name for JDK
+        jdk 'JDK8'
+    }
+    stages {
+        stage('Build with JDK8') {
+            steps {
+                sh 'java -version'
+            }
+        }
+        stage('Test with JDK11') {
+            tools {
+                jdk 'JDK11'
+            }
+            steps {
+                sh 'java -version'
+            }
+        }
+    }
+}

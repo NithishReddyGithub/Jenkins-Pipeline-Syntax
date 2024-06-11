@@ -1,0 +1,20 @@
+def globalVar //def is used to create variables
+pipeline {
+    agent any
+    environment { //Using env variables
+        MY_VAR = 'Hello, World'
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "The value of MY_VAR is: ${MY_VAR}"
+                globalVar = 'some value'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Global variable value is: ${globalVar}"
+            }
+        }
+    }
+}
