@@ -7,6 +7,11 @@ pipeline {
         // Environment variables to be set for the pipeline
     }
     stages {
+        stage('Git_Checkout') {
+            steps {
+                git https://github.com/NithishReddyGithub/test01.git
+            }
+        }
         stage('Build') {
             steps {
                 // Steps for building the application
@@ -15,6 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Steps for testing the application
+                echo 'Build asset'
             }
         }
         stage('Deploy') {
