@@ -1,5 +1,10 @@
 pipeline {
-    agent any // Defines where the pipeline will run
+    // agent any
+    agent {
+        docker {
+            image 'node:14-alpine'
+        }
+    }
     options {
         // Pipeline-level options such as timeouts, retry, etc.
     }
